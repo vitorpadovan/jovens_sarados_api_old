@@ -1,0 +1,33 @@
+package com.br.vitorhernandes.jovem_sarados_api.config.database;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+@Configuration
+public class DatabaseConfig {
+
+	@Value("${spring.datasource.url}")
+	private String dbUrl;
+
+	@Value("${spring.datasource.username}")
+	private String usuario;
+
+	@Value("${spring.datasource.password}")
+	private String senha;
+
+
+	@Bean
+	public DataSource dataSource() {
+		HikariConfig config = new HikariConfig();
+		config.setJdbcUrl(dbUrl);
+		config.setUsername(this.usuario);
+		config.setPassword(this.senha);
+		return new HikariDataSource(config);
+	}
+}

@@ -14,6 +14,7 @@ public class EventoService {
 	@Autowired
 	private EventoJpa repo;
 
+
 	public List<Evento> getEventosAtivos() {
 		List<Evento> eventos;
 		eventos = repo.getEventosAtivos();

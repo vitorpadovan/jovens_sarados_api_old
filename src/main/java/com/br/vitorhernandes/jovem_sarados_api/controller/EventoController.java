@@ -17,6 +17,7 @@ public class EventoController {
 	@Autowired
 	private EventoService servico;
 
+
 	@GetMapping
 	public List<Evento> getEventosAtivos() {
 		return servico.getEventosAtivos();
